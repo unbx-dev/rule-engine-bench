@@ -1,0 +1,20 @@
+name: Unbx Code Scan
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Unbx Code Scan
+        uses: unbx-dev/unbx-cli@v0.0.10
+        with:
+          access_token: ${{ secrets.SYNK_ACCESS_TOKEN }}
+          secret_token: ${{ secrets.SYNK_SECRET_TOKEN }}
