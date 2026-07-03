@@ -7,7 +7,9 @@ on:
 permissions:
   contents: read
   pull-requests: write
-
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -19,4 +21,7 @@ jobs:
         with:
           access_token: ${{ secrets.UNBX_ACCESS_TOKEN }}
           secret_token: ${{ secrets.UNBX_SECRET_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository_id: ${{ github.repository_id }}
+          repository: ${{ github.repository }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          pr_number: ${{ github.event.pull_request.number }}
