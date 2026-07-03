@@ -19,3 +19,4 @@ jobs:
         with:
           access_token: ${{ secrets.UNBX_ACCESS_TOKEN }}
           secret_token: ${{ secrets.UNBX_SECRET_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
