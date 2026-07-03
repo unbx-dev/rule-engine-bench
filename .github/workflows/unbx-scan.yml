@@ -16,5 +16,5 @@ jobs:
       - name: Unbx Code Scan
         uses: unbx-dev/unbx-cli@v0.0.10
         with:
-          access_token: ${{ secrets.SYNK_ACCESS_TOKEN }}
-          secret_token: ${{ secrets.SYNK_SECRET_TOKEN }}
+          access_token: ${{ secrets.UNBX_ACCESS_TOKEN }}
+          secret_token: ${{ secrets.UNBX_SECRET_TOKEN }}
